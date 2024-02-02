@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>chatbot</title>
+</head>
+<body>
+<h1>AI Girlfrind</h1>
+<form method="POST" action="/senf_message">
+    <input type="text" name="human_input" placeholder="Enter Your Message">
+    <button type="submit">Send</button>
+</form>
+<div id="response_message"></div>
+<script>
+    const form = document.querySelector('form');
+    const responsemessage = document.getElementById('response_message');
+
+    form.addEventListener('submit',function (e) {
+        e.preventDefault();
+        const formdata = new FormData(form);
+        fetch('/senf_message',{
+            method:'POST',
+            body: formdata,
+        })
+            .then(response => response.text())
+            .then(data =>{
+                responsemessage.innerHTML = data;
+                });
+        form.reset();
+    })
+</script>
+</body>
+</html>
