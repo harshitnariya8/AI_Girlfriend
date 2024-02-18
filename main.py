@@ -44,7 +44,7 @@ def home():
     print("hello")
     return render_template("index.html")
 
-@app.route("/senf_message",methods=['POST'])
+@app.route("/send_message",methods=['POST'])
 def send_message():
     human_input = request.form['human_input']
     message = get_response_from_ai(human_input)

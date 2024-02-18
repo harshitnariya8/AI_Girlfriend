@@ -4,7 +4,7 @@
 </head>
 <body>
 <h1>AI Girlfrind</h1>
-<form method="POST" action="/senf_message">
+<form method="POST" action="/send_message">
     <input type="text" name="human_input" placeholder="Enter Your Message">
     <button type="submit">Send</button>
 </form>
@@ -16,7 +16,7 @@
     form.addEventListener('submit',function (e) {
         e.preventDefault();
         const formdata = new FormData(form);
-        fetch('/senf_message',{
+        fetch('/send_message',{
             method:'POST',
             body: formdata,
         })
